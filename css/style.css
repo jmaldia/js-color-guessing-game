@@ -38,7 +38,7 @@ button:hover, .selected {
 }
 
 #container {
-    margin: 0 auto;
+    margin: 20px auto 0;
     width: 600px;
 }
 
@@ -64,4 +64,6 @@ button:hover, .selected {
     padding-bottom: 30%;
     float:left;
     margin: 1.66%;
+    border-radius: 5%;
+    transition: background-color 0.4s;
 }
