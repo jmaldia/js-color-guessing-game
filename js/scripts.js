@@ -1,13 +1,33 @@
-let colors = [
-    "rgb(255, 0, 0)",
-    "rgb(255, 255, 0)",
-    "rgb(0, 255, 0)",
-    "rgb(0, 255, 255)",
-    "rgb(0, 0, 255)",
-    "rgb(255, 0, 255)"
-];
+let changeColors = (color) => {
+    for(let i = 0; i < colors.length; i++) {
+        squares[i].style.backgroundColor = color;
+    }
+} 
+
+let pickColor = () => {
+    let random = Math.floor(Math.random() * colors.length);
+    return colors[random];
+}
+
+let generateRandomColors = (num) => {
+    // make an array 
+    let arr = [];
+    // repeat num times
+    for(let i = 0; i < num; i++) {
+        // get random color and push into arr
+        arr.push(randomColor());
+    }
+    // return that array
+    return arr
+}
+
+let randomColor = () => {
+    return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
+}
+
+let colors = generateRandomColors(6)
 let squares = document.querySelectorAll(".square");
-let pickedColor = colors[3];
+let pickedColor = pickColor();
 let colorDisplay = document.getElementById("colorDisplay");
 let message = document.getElementById("message");
 
@@ -31,10 +51,4 @@ for (let i = 0; i < colors.length; i++) {
             message.textContent = "Try again.";
         }
     });
-}
-
-let changeColors = (color) => {
-    for(let i = 0; i < colors.length; i++) {
-        squares[i].style.backgroundColor = color;
-    }
 }
