@@ -8,6 +8,17 @@ body {
     width: 600px;
 }
 
+#stripe {
+    background-color: #ffffff;
+    height: 30px;
+    text-align: center;
+    color: #232323;
+}
+
+.selected {
+    background-color: teal;
+}
+
 .square {
     width: 30%;
     background-color: purple;
