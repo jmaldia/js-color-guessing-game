@@ -38,7 +38,7 @@ button:hover, .selected {
 }
 
 #container {
-    margin: 20px auto 0;
+    margin: 100px auto 0;
     width: 600px;
 }
 
@@ -63,7 +63,8 @@ button:hover, .selected {
     background-color: purple;
     padding-bottom: 30%;
     float:left;
-    margin: 1.66%;
+    margin: 1.50%;
     border-radius: 5%;
+    border: 1px solid rgba(255, 255, 255, .05);
     transition: background-color 0.4s;
 }
