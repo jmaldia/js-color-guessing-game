@@ -34,14 +34,45 @@ let colorDisplay = document.getElementById("colorDisplay");
 let message = document.getElementById("message");
 let h1 = document.querySelector("h1");
 let resetButton = document.getElementById("reset");
+let easyBtn = document.getElementById("easyBtn");
+let hardBtn = document.getElementById("hardBtn");
+let numSquares = 6;
 
 // MAIN FUNCTION
+// difficulty options
+easyBtn.addEventListener("click", function() {
+    easyBtn.classList.toggle("selected");
+    hardBtn.classList.toggle("selected");
+    numSquares = 3;
+    colors = generateRandomColors(numSquares);
+    pickedColor = pickColor();
+    for (let i = 0; i < squares.length; i++) {
+        if (colors[i]) {
+            squares[i].style.backgroundColor = colors[i];
+        } else {
+            squares[i].style.display = "none";
+        }
+    }
+});
+
+hardBtn.addEventListener("click", function() {
+    easyBtn.classList.toggle("selected");
+    hardBtn.classList.toggle("selected");
+    numSquares = 6;
+    colors = generateRandomColors(numSquares);
+    pickedColor = pickColor();
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = colors[i];
+        squares[i].style.display = "block";
+    }
+});
+
 // reset
 resetButton.addEventListener("click", function() {
 
     resetButton.textContent = "New Colors"
     // generate new colors
-    colors = generateRandomColors(6);
+    colors = generateRandomColors(numSquares);
     // pick a random color from the array
     pickedColor = pickColor();
     // change colorDisplay to match picked color
