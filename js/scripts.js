@@ -24,10 +24,17 @@ for (let i = 0; i < colors.length; i++) {
 
         // compare color to pickedColor
         if (clickedColor === pickedColor) {
-            message.textContent = "Correct! You Won!"
+            message.textContent = "Correct! You Won!";
+            changeColors(clickedColor);
         } else {
             this.style.backgroundColor = "#232323";
             message.textContent = "Try again.";
         }
     });
+}
+
+let changeColors = (color) => {
+    for(let i = 0; i < colors.length; i++) {
+        squares[i].style.backgroundColor = color;
+    }
 }
