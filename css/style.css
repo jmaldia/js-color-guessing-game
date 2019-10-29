@@ -1,6 +1,40 @@
 body {
     background-color: #232323;
     color: white;
+    margin: 0;
+    font-family: "Montserrat", "Avenir";
+}
+
+h1 {
+    text-align: center;
+    line-height: 1.1;
+    font-weight: normal;
+    background-color: steelblue;
+    margin: 0;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+
+button {
+    border: none;
+    background-color: none;
+    text-transform: uppercase;
+    height: 100%;
+    outline: none;
+    font-weight: 700;
+    color: steelblue;
+    letter-spacing: 1px;
+    font-size: inherit;
+    transition: all 0.3s;
+}
+
+button:hover, .selected {
+    color: #ffffff;
+    background-color: steelblue;
+}
+
+#colorDisplay { 
+    font-size: 200%;
 }
 
 #container {
@@ -13,6 +47,11 @@ body {
     height: 30px;
     text-align: center;
     color: #232323;
+}
+
+#message {
+    display: inline-block;
+    width: 20%;
 }
 
 .selected {

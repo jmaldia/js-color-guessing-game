@@ -82,7 +82,8 @@ resetButton.addEventListener("click", function() {
         squares[i].style.backgroundColor = colors[i];
     }
 
-    h1.style.backgroundColor = "#232323";
+    h1.style.backgroundColor = "steelblue";
+    message.textContent = "";
 })
 
 colorDisplay.textContent = pickedColor;
@@ -98,13 +99,16 @@ for (let i = 0; i < colors.length; i++) {
 
         // compare color to pickedColor
         if (clickedColor === pickedColor) {
-            message.textContent = "Correct! You Won!";
+            message.textContent = "CORRECT! YOU WON!!";
             h1.style.backgroundColor = clickedColor;
             changeColors(clickedColor);
             resetButton.textContent = "Play Again?"
+            message.style.color = "green";
+            message.style.fontWeight = "800";
         } else {
             this.style.backgroundColor = "#232323";
             message.textContent = "Try again.";
+            message.style.color = "red";
         }
     });
 }
