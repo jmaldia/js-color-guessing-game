@@ -26,6 +26,42 @@ let randomColor = () => {
     return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
 }
 
+let setupModeButtons = () => {
+    for(let i = 0; i < modeButtons.length; i++) {
+        modeButtons[i].addEventListener("click", function(){
+            modeButtons[0].classList.remove("selected");
+            modeButtons[0].classList.remove("selected");
+            this.classList.add("selected");
+            numSquares = this.textContent === "Easy" ? 3 : 6;
+            reset();
+        })
+    }
+}
+
+let setupSquares = () => {
+    for (let i = 0; i < colors.length; i++) {
+        // Add click listeners to squares
+        squares[i].addEventListener("click", function(){
+            // grab color of clicked square
+            let clickedColor = this.style.backgroundColor;
+    
+            // compare color to pickedColor
+            if (clickedColor === pickedColor) {
+                message.textContent = "CORRECT! YOU WON!!";
+                h1.style.backgroundColor = clickedColor;
+                changeColors(clickedColor);
+                resetButton.textContent = "Play Again?"
+                message.style.color = "green";
+                message.style.fontWeight = "800";
+            } else {
+                this.style.backgroundColor = "#232323";
+                message.textContent = "Try again.";
+                message.style.color = "red";
+            }
+        });
+    }
+}
+
 let reset = () => {
     // generate new colors
     colors = generateRandomColors(numSquares);
@@ -64,40 +100,8 @@ let modeButtons = document.querySelectorAll(".mode");
 
 // MAIN FUNCTION
 let init = () => {
-    reset();
-    // difficulty options
-    for(let i = 0; i < modeButtons.length; i++) {
-        modeButtons[i].addEventListener("click", function(){
-            modeButtons[0].classList.remove("selected");
-            modeButtons[0].classList.remove("selected");
-            this.classList.add("selected");
-            numSquares = this.textContent === "Easy" ? 3 : 6;
-            reset();
-        })
-    }
-
-    for (let i = 0; i < colors.length; i++) {
-        // Add click listeners to squares
-        squares[i].addEventListener("click", function(){
-            // grab color of clicked square
-            let clickedColor = this.style.backgroundColor;
-    
-            // compare color to pickedColor
-            if (clickedColor === pickedColor) {
-                message.textContent = "CORRECT! YOU WON!!";
-                h1.style.backgroundColor = clickedColor;
-                changeColors(clickedColor);
-                resetButton.textContent = "Play Again?"
-                message.style.color = "green";
-                message.style.fontWeight = "800";
-            } else {
-                this.style.backgroundColor = "#232323";
-                message.textContent = "Try again.";
-                message.style.color = "red";
-            }
-        });
-    }
-
+    setupModeButtons();
+    setupSquares();
     reset();
 }
 
